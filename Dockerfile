@@ -22,7 +22,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -yq 
 
 # Install Nginx
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx nano locate
 
 # Remove retrieved package files from local cache
 RUN apt-get clean
@@ -34,9 +34,11 @@ RUN rm -rf /var/lib/apt/lists/
 # to prevent the container from exiting soon after start
 # To run this container in the back ground use the -d option
 #   
-#     $ sudo docker run -d broadtech/debian-stretch-nginx
+#     $ sudo docker run -d broadtech/debian-stretch-nginx RUN ls -la
 #
-RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
+COPY  /etc/nginx/* /etc/nginx/
+#RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
+RUN ls -la  /etc/nginx/
 
 # Open port to access Nginx
 EXPOSE 80 8080
