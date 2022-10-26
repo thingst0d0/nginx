@@ -22,7 +22,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -yq 
 
 # Install Nginx
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx nano locate
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx nano locate 
 
 # Remove retrieved package files from local cache
 RUN apt-get clean
@@ -41,7 +41,7 @@ COPY  /etc/nginx/ /etc/nginx/
 RUN ls -la  /etc/nginx/
 
 # Open port to access Nginx
-EXPOSE 80 8080
+EXPOSE 80 8080 3306 33060
 
 # Run Nginx when container starts
 CMD ["/usr/sbin/nginx"]
