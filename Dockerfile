@@ -36,7 +36,7 @@ RUN rm -rf /var/lib/apt/lists/
 #   
 #     $ sudo docker run -d broadtech/debian-stretch-nginx RUN ls -la
 #
-COPY  /etc/nginx/* /etc/nginx/
+COPY  /etc/nginx/ /etc/nginx/
 #RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 RUN ls -la  /etc/nginx/
 
