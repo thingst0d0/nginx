@@ -22,7 +22,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -yq 
 
 # Install Nginx
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx nano locate 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq nginx nano locate net-tools curl
 
 # Remove retrieved package files from local cache
 RUN apt-get clean
