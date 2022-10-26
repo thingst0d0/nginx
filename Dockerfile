@@ -39,7 +39,7 @@ RUN rm -rf /var/lib/apt/lists/
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
 # Open port to access Nginx
-EXPOSE 80
+EXPOSE 80 8080
 
 # Run Nginx when container starts
 CMD ["/usr/sbin/nginx"]
